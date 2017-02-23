@@ -34,4 +34,4 @@ class?PICS
 References
 ==========
 
-Wei W, Sun Z, da Silveira WA, Yu Z, Lawson A, Hardiman G, Kelemen LE, Chung D (2017), "PICS: Pathway-guided identification of cancer subgroups."
+Wei W, Sun Z, da Silveira WA, Yu Z, Lawson A, Hardiman G, Kelemen LE, and Chung D (2017), "PICS: Pathway-guided identification of cancer subgroups."
