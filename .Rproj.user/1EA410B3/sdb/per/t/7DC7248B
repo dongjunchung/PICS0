@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' @title plot survival roc curves\n#'\n#' @description generate survival roc curves\n#'\n#' @param predicted output of pred step.\n#'\n#' @export\n#' @import survivalROC\n#'\n#' @examples\n#' data(TCGA)\n#' train.list=prefilter( data=TCGA, time=t, status=d, p.cut=0.5, plist=path.list)\n#' gene.results=selectGene( data=train.list, fold=5, K=c(3,5), etas=c(0.1,0.9),seed=123)\n#' path.results=selectPath( gene.results, seed=123)\n#' predicted=pred( path.results, newx=train.list, n=50 )\n#' survivalRoc(predicted)\n\n\n\n\nsurvivalRoc<- function(predicted){\n  time=predicted$time\n  status=predicted$status\n  roc=survivalROC(Stime=time,status=status,\n                  marker=predicted$risk.index, predict.time=60, method=\"KM\")\n\n\n  plot(roc$FP, roc$TP, type=\"l\", xlim=c(0,1), ylim=c(0,1), col=\"red\",\n       xlab=\"1-Specificity\", ylab=\"Sensitivity\")\n  text(x=0.8, y=0.1, labels = paste(\"AUC =\", round((roc$AUC),3)))\n  abline(0,1)\n}\n\n",
+    "created" : 1487094764856.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "22831178",
+    "id" : "7DC7248B",
+    "lastKnownWriteTime" : 1487095500,
+    "last_content_update" : 1487095500683,
+    "path" : "C:/Users/sunze/Desktop/package_0209/PICS/R/survivalRoc.R",
+    "project_path" : "R/survivalRoc.R",
+    "properties" : {
+    },
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
