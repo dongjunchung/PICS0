@@ -3,14 +3,14 @@ Version: 0.0-1
 Date: 2017-02-01
 Title: PICS (Pathway-guided Identification of Cancer Subgroups)
 Author: Zequn Sun <sunze@musc.edu>, Wei Wei <wei.wei@yale.edu>,
-        Dongjun Chung <chungd@musc.edu>, 
+    Dongjun Chung <chungd@musc.edu>,
 Maintainer: Zequn Sun <sunze@musc.edu>
 Depends:
     R (>= 2.14)
 Imports:
     stats,
-	graphics,
-	glmnet,
+    graphics,
+    glmnet,
     survival,
     parallel,
     foreach,
@@ -22,7 +22,9 @@ Imports:
     ggplot2,
     gridExtra,
     survivalROC
-Description: This package provides functions for fitting PICS, a statistical framework for simultaneous identification of cancer patient subgroups and key molecular features.
+Description: This package provides functions for fitting PICS, a statistical
+    framework for simultaneous identification of cancer patient subgroups and key
+    molecular features.
 LazyData: true
 License: GPL (>= 2)
 Encoding: UTF-8

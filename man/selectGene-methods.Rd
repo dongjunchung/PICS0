@@ -6,7 +6,7 @@
 \alias{selectGene}
 \title{Gene selection using SPLS model}
 \usage{
-\S4method{selectGene}{Prefiltered}(object, fold = 5, K = c(3, 5),
+\S4method{selectGene}{Prefiltered}(object, fold = 5, K = 5,
   etas = seq(0.1, 0.9, 0.1), seed = 123)
 }
 \arguments{
@@ -26,5 +26,5 @@ Sparse Partial Least Square (SPLS) step for gene selection and dimension reducti
 \examples{
 data(TCGA)
 train.list=prefilter( data=TCGA$geneexpr, time=TCGA$t, status=TCGA$d, plist=TCGA$pathList )
-gene.results=selectGene( object=train.list, fold=5, K=c(3,5), etas=c(0.1,0.9),seed=123)
+gene.results=selectGene( object=train.list, fold=5, K=5, etas=c(0.1,0.9),seed=123)
 }

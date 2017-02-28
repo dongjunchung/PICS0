@@ -15,7 +15,7 @@
 #' @examples
 #' data(TCGA)
 #' train.list=prefilter( data=TCGA$geneexpr, time=TCGA$t, status=TCGA$d, plist=TCGA$pathList )
-#' gene.results=selectGene( object=train.list, fold=5, K=c(3,5), etas=c(0.1,0.9),seed=123)
+#' gene.results=selectGene( object=train.list, fold=5, K=5, etas=c(0.1,0.9),seed=123)
 #' path.results=selectPath( object=gene.results, seed=123)
 
 setMethod(

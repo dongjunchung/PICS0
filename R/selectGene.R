@@ -18,12 +18,12 @@
 #' @examples
 #' data(TCGA)
 #' train.list=prefilter( data=TCGA$geneexpr, time=TCGA$t, status=TCGA$d, plist=TCGA$pathList )
-#' gene.results=selectGene( object=train.list, fold=5, K=c(3,5), etas=c(0.1,0.9),seed=123)
+#' gene.results=selectGene( object=train.list, fold=5, K=5, etas=c(0.1,0.9),seed=123)
 
 setMethod(
   f="selectGene",
   signature="Prefiltered",
-  definition=function( object, fold=5, K=c(3,5), etas=seq(0.1,0.9,0.1), seed=123 ) {
+  definition=function( object, fold=5, K=5, etas=seq(0.1,0.9,0.1), seed=123 ) {
 
     time=object@inputdata$time
     status=object@inputdata$status
@@ -44,9 +44,9 @@ setMethod(
 
       if(kmax>1){
         aucs <- foreach(i=1:length(etas),.combine='rbind') %do% {
-          cvi=cv.coxsplsDR( list(x=xx,time=time,status=status),
+          suppressWarnings(cvi=cv.coxsplsDR( list(x=xx,time=time,status=status),
             givefold=cvfolds, nt=kmax, nfold=fold, eta=etas[i],
-            plot.it=F, se=T, sclaleY=F )
+            plot.it=F, se=T, sclaleY=F ))
 
           cbind( cvi$cv.error10[-1],cvi$cv.se10[-1]	)
         }
