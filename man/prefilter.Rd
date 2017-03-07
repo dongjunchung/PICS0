@@ -22,5 +22,5 @@ a supervised prefiltering by fitting a cox regression model on the expression me
 }
 \examples{
 data(TCGA)
-train.list=prefilter( data=TCGA$geneexpr, time=TCGA$t, status=TCGA$d, plist=TCGA$pathList )
+prefilter.results=prefilter( data=TCGA$geneexpr, time=TCGA$t, status=TCGA$d, plist=TCGA$pathList )
 }

@@ -25,6 +25,6 @@ Sparse Partial Least Square (SPLS) step for gene selection and dimension reducti
 }
 \examples{
 data(TCGA)
-train.list=prefilter( data=TCGA$geneexpr, time=TCGA$t, status=TCGA$d, plist=TCGA$pathList )
-gene.results=selectGene( object=train.list, fold=5, K=5, etas=c(0.1,0.9),seed=123)
+prefilter.results=prefilter( data=TCGA$geneexpr, time=TCGA$t, status=TCGA$d, plist=TCGA$pathList )
+gene.results=selectGene( object=prefilter.results, fold=5, K=5, etas=c(0.1,0.9),seed=123)
 }

@@ -2,7 +2,6 @@
 #'
 #' @description Summary of prefiltering results.
 #'
-#' @rdname Prefiltered-class
 #' @aliases show,Prefiltered-method
 #'
 #' @param object output of prefilter function

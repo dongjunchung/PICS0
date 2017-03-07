@@ -3,7 +3,7 @@
 #' @description a supervised prefiltering by fitting a cox regression model on the expression measures of each mRNA.  Only genes with p values smaller than a pre-selected cut-off point were included in further analysis. Here we chose p=0.5 as default cut-off point.
 #'
 #' @export
-#' @import foreach survival
+#' @import foreach survival methods
 #' @param data A N by P dataframe, where N is number of observations, P is number of genes
 #' @param time time passed to selectGene's time argument.
 #' @param status status selectGene's status argument.
@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' data(TCGA)
-#' train.list=prefilter( data=TCGA$geneexpr, time=TCGA$t, status=TCGA$d, plist=TCGA$pathList )
+#' prefilter.results=prefilter( data=TCGA$geneexpr, time=TCGA$t, status=TCGA$d, plist=TCGA$pathList )
 
 
 prefilter <- function( data, time, status, p.cut=0.5, plist=plist ){
@@ -26,7 +26,7 @@ prefilter <- function( data, time, status, p.cut=0.5, plist=plist ){
     data[,idx]
   } )
 
-  new( "Prefiltered",
+  methods::new( "Prefiltered",
     xlist = xlist,
     inputdata = list( data = data, time = time, status = status, pathway = names(xlist) )
   )
